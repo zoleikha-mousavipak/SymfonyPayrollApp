@@ -7,6 +7,7 @@ use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use App\Service\PayrollGenerator;
+use PhpParser\Node\Stmt\TryCatch;
 
 class GeneratePayrollCommand extends Command
 {
@@ -29,9 +30,13 @@ class GeneratePayrollCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $filename = $input->getArgument('filename');
-        $this->payrollGenerator->generateCSV($filename);
 
-        $output->writeln('Payroll CSV generated successfully.');
+        Try {
+            $this->payrollGenerator->generateCSV($filename);
+            $output->writeln('Payroll CSV generated successfully.');
+        } catch (\Exception $e) {
+            $output->writeln('An error occurred: ' . $e->getMessage());
+        }        
 
         return Command::SUCCESS;
     }

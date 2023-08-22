@@ -9,6 +9,10 @@ class BonusPayrollStrategy implements PayrollStrategyInterface
         // generate bonus payroll data
         $bonusDate = $this->calculateBonusDate($date);
 
+        if (!$bonusDate) {
+            throw new \Exception('Failed to calculate bonus date.');
+        }
+
         return [
             'month' => $date->format('F'),
             'salary_date' => null, // No salary date in this strategy

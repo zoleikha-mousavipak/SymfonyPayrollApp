@@ -9,6 +9,10 @@ class MonthlyPayrollStrategy implements PayrollStrategyInterface
         // generate monthly payroll data
         $salaryDate = $this->calculateSalaryDate($date);
 
+        if (!$salaryDate) {
+            throw new \Exception('Failed to calculate salary date.');
+        }
+
         return [
             'month' => $date->format('F'),
             'salary_date' => $salaryDate,
