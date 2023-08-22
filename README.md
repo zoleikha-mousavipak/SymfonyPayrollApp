@@ -42,3 +42,8 @@ These design patterns, SOLID principles, and technologies contribute to a well-s
 # Command to Run Project
 
 php bin/console payroll:generate output.csv
+
+
+# Command to Run Unit testing
+
+./vendor/bin/phpunit
