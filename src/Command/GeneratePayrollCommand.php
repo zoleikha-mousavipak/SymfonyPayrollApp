@@ -29,11 +29,10 @@ class GeneratePayrollCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $filename = $input->getArgument('filename');
-        
         $this->payrollGenerator->generateCSV($filename);
-        
+
         $output->writeln('Payroll CSV generated successfully.');
-        
+
         return Command::SUCCESS;
     }
 }

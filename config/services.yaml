@@ -25,4 +25,6 @@ services:
 
     # this creates a service to generate Payroll Application
     App\Service\PayrollGenerator: ~
+    App\Service\PayrollStrategyFactory: ~
+
 
