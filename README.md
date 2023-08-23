@@ -47,3 +47,9 @@ php bin/console payroll:generate output.csv
 # Command to Run Unit testing
 
 ./vendor/bin/phpunit
+
+
+# Commands to Run Project with Docker
+
+- docker build -t payroll-app .
+- docker run -it --rm --name payroll-app payroll-app
