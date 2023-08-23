@@ -30,7 +30,6 @@ SOLID Principles:
 - Single Responsibility Principle (SRP): Each class has a single responsibility, such as generating payroll data, creating strategies, or handling console commands.
 
 - Open/Closed Principle (OCP): The code is open for extension (adding new strategies) but closed for modification (existing code doesn't need changes for new strategies).
-Technologies:
 
 DateTime: Utilized for date manipulation and calculations to generate accurate payment dates.
 
