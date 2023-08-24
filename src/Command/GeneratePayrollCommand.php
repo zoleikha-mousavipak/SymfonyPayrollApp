@@ -2,6 +2,7 @@
 
 namespace App\Command;
 
+use Psr\Log\LoggerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
@@ -11,23 +12,24 @@ use PhpParser\Node\Stmt\TryCatch;
 
 class GeneratePayrollCommand extends Command
 {
-    private PayrollGenerator $payrollGenerator;
+    private $payrollGenerator;
+    private $logger;
 
-    public function __construct(PayrollGenerator $payrollGenerator)
+    public function __construct(PayrollGenerator $payrollGenerator, LoggerInterface $logger)
     {
-        $this->payrollGenerator = $payrollGenerator;
-
         parent::__construct();
+        $this->payrollGenerator = $payrollGenerator;
+        $this->logger = $logger;
     }
 
-    protected function configure()
+    protected function configure(): void
     {
         $this->setName('payroll:generate')
             ->setDescription('Generate payroll CSV')
             ->addArgument('filename', InputArgument::REQUIRED, 'Output CSV filename');
     }
 
-    protected function execute(InputInterface $input, OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $filename = $input->getArgument('filename');
 
@@ -35,6 +37,7 @@ class GeneratePayrollCommand extends Command
             $this->payrollGenerator->generateCSV($filename);
             $output->writeln('Payroll CSV generated successfully.');
         } catch (\Exception $e) {
+            $this->logger->error('An error occurred: ' . $e->getMessage());
             $output->writeln('An error occurred: ' . $e->getMessage());
         }        
 
