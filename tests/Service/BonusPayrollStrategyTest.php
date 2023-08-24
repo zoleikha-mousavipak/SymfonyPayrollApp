@@ -5,8 +5,16 @@ namespace App\Tests\Service;
 use App\Service\BonusPayrollStrategy;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Unit test for BonusPayrollStrategy class.
+ */
 class BonusPayrollStrategyTest extends TestCase
 {
+    /**
+     * Test case for generating bonus payroll data.
+     *
+     * @return void
+     */
     public function testGeneratePayrollData()
     {
         $strategy = new BonusPayrollStrategy();

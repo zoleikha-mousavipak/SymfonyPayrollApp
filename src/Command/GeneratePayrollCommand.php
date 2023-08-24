@@ -10,11 +10,20 @@ use Symfony\Component\Console\Output\OutputInterface;
 use App\Service\PayrollGenerator;
 use PhpParser\Node\Stmt\TryCatch;
 
+/**
+ * Command for generating payroll data
+ */
 class GeneratePayrollCommand extends Command
 {
     private $payrollGenerator;
     private $logger;
 
+    /**
+     * Constructs a new instance of the class.
+     *
+     * @param PayrollGenerator $payrollGenerator The payroll generator instance
+     * @param LoggerInterface $logger            The logger instance for error handling
+     */
     public function __construct(PayrollGenerator $payrollGenerator, LoggerInterface $logger)
     {
         parent::__construct();
@@ -22,6 +31,11 @@ class GeneratePayrollCommand extends Command
         $this->logger = $logger;
     }
 
+    /**
+     * Configures the command with details about its name, description, and arguments.
+     *
+     * @return void
+     */
     protected function configure(): void
     {
         $this->setName('payroll:generate')
@@ -29,6 +43,13 @@ class GeneratePayrollCommand extends Command
             ->addArgument('filename', InputArgument::REQUIRED, 'Output CSV filename');
     }
 
+    /**
+     * Executes the command's functionality.
+     *
+     * @param InputInterface $input
+     * @param OutputInterface $output
+     * @return integer
+     */
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $filename = $input->getArgument('filename');

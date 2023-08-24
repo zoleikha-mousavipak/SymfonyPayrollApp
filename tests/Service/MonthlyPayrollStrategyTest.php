@@ -5,8 +5,16 @@ namespace App\Tests\Service;
 use App\Service\MonthlyPayrollStrategy;
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Unit test for MonthlyPayrollStrategy class.
+ */
 class MonthlyPayrollStrategyTest extends TestCase
 {
+    /**
+     * Test case for generating monthly payroll data.
+     *
+     * @return void
+     */
     public function testGeneratePayrollData()
     {
         $strategy = new MonthlyPayrollStrategy();

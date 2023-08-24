@@ -2,8 +2,17 @@
 
 namespace App\Service;
 
+/**
+ * Strategy for calculating monthly payroll data.
+ */
 class MonthlyPayrollStrategy implements PayrollStrategyInterface
 {
+    /**
+     * Generates monthly payroll data based on the provided date.
+     *
+     * @param \DateTime $date The date for which to generate the monthly payroll data
+     * @return array The generated monthly payroll data as an array
+     */
     public function generatePayrollData(\DateTime $date): array
     {
         // generate monthly payroll data
@@ -20,6 +29,12 @@ class MonthlyPayrollStrategy implements PayrollStrategyInterface
         ];
     }
 
+    /**
+     * Calculates the salary payment date based on the provided date.
+     *
+     * @param \DateTime $date The date for which to calculate the salary payment date
+     * @return string The calculated salary payment date as a string
+     */
     private function calculateSalaryDate(\DateTime $date): string
     {
         $lastDayOfMonth = strtotime('last day of ' . $date->format('F Y'));

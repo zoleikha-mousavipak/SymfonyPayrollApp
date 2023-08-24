@@ -2,15 +2,29 @@
 
 namespace App\Service;
 
+/**
+ * Generates payroll data and exports it to a CSV file.
+ */
 class PayrollGenerator
 {
     private PayrollStrategyFactory $strategyFactory;
 
+    /**
+     * Constructs a new PayrollGenerator instance.
+     *
+     * @param PayrollStrategyFactory $strategyFactory The factory for creating payroll strategies
+     */
     public function __construct(PayrollStrategyFactory $strategyFactory)
     {
         $this->strategyFactory = $strategyFactory;
     }
 
+    /**
+     * Generates payroll data and exports it to a CSV file.
+     *
+     * @param string $filename The name of the CSV file to generate
+     * @return void
+     */
     public function generateCSV(string $filename)
     {
         $handle = fopen($filename, 'w');

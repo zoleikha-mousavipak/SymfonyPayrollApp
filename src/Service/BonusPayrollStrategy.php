@@ -2,6 +2,9 @@
 
 namespace App\Service;
 
+/**
+ * Strategy for calculating bonus payroll data.
+ */
 class BonusPayrollStrategy implements PayrollStrategyInterface
 {
     public function generatePayrollData(\DateTime $date): array
@@ -20,6 +23,12 @@ class BonusPayrollStrategy implements PayrollStrategyInterface
         ];
     }
 
+    /**
+     * Calculates the bonus payment date based on the provided date.
+     *
+     * @param \DateTime $date The date for which to calculate the bonus payment date
+     * @return string The calculated bonus payment date as a string
+     */
     private function calculateBonusDate(\DateTime $date): string
     {
         $bonusDate = new \DateTime($date->format('Y-m-15'));
