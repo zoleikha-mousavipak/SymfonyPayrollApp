@@ -49,7 +49,7 @@ DateTime: Utilized for date manipulation and calculations to generate accurate p
 
 CSV Handling: Writing data to CSV files for reporting and data storage.
 
-Event Listener: In this payroll app, an Event Listener captures errors that occur generaly. For example during CSV generation, automatically logging them for later analysis and troubleshooting. (var/dev.log)
+Event Listener: In this payroll app, an Event Listener captures errors that occur generally. For example during CSV generation, automatically logging them for later analysis and troubleshooting. (var/dev.log)
 
 PHPUnit: The PHPUnit tests in this app ensure the accuracy of payroll calculations and the proper functioning of bonus strategies by validating expected outcomes and behaviors through automated testing.
 
