@@ -1,19 +1,33 @@
 # TheBikiniTest
 Teufel: The Bikini Test Application
 
-TheBikiniTestApp/   
-├── src/   
-│   ├── Command/   
-│   │   └── GeneratePayrollCommand.php   
-│   ├── Service/   
-│   │   ├── PayrollGenerator.php   
-│   │   ├── PayrollStrategyFactory.php   
-│   │   ├── PayrollStrategyInterface.php   
-│   │   ├── MonthlyPayrollStrategy.php   
-│   │   └── BonusPayrollStrategy.php   
-└── bin/   
-    └── console   
-
+TheBikiniTestApp/  
+├── bin/  
+│   └── console  
+├── src/  
+│   ├── Command/  
+│   │   └── GeneratePayrollCommand.php  
+│   ├── Service/  
+│   │   ├── PayrollGenerator.php  
+│   │   ├── PayrollStrategyFactory.php  
+│   │   ├── PayrollStrategyInterface.php  
+│   │   ├── MonthlyPayrollStrategy.php  
+│   │   └── BonusPayrollStrategy.php  
+├── tests/  
+│   ├── Service/  
+│   │   ├── BonusPayrollStrategyTest.php  
+│   │   ├── MonthlyPayrollStrategyTest.php  
+├── var/  
+│   ├── logs/  
+│   │   └── app.log  
+│   ├── cache/  
+│   │   └── dev/  
+├── .gitignore  
+├── composer.json  
+├── docker-compose.yml  
+├── Dockerfile  
+├── phpunit.xml.dist  
+   
 
 # Summary of technologies used in this App:
 
