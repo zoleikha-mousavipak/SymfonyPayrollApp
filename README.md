@@ -1,7 +1,7 @@
-# TheBikiniTest
-Teufel: The Bikini Test Application
+# SymfonyPayrollApp
+The Payroll Application
 
-TheBikiniTestApp/  
+SymfonyPayrollApp/  
 ├── bin/  
 │   └── console  
 ├── src/  
